@@ -1,11 +1,12 @@
 <script setup lang="ts">
-const { signOut } = useAuth()
+const { signOut, status } = useAuth()
+const loggedIn = computed(() => status.value === 'authenticated')
 </script>
 
 <template>
   <nav class="border-gray-200 bg-gray-50 dark:bg-gray-900">
     <div
-      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto"
     >
       <Logo />
       <button
@@ -32,7 +33,7 @@ const { signOut } = useAuth()
       </button>
       <div id="navbar-default" class="hidden w-full md:block md:w-auto">
         <ul
-          class="font-medium flex items-center border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700"
+          class="flex items-center font-medium border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700"
         >
           <li>
             <NuxtLink
@@ -55,11 +56,15 @@ const { signOut } = useAuth()
 
           <li>
             <button
+              v-if="loggedIn"
               class="block py-2 pl-3 pr-4 md:bg-transparent md:hover:text-primary-700 md:p-0 dark:text-white md:dark:text-primary-500"
               @click="signOut()"
             >
               Sign out
             </button>
+            <nuxt-link v-else to="/login">
+              Login
+            </nuxt-link>
           </li>
         </ul>
       </div>

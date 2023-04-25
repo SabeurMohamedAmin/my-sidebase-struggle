@@ -1,10 +1,19 @@
 <template>
-  <h1 class="text-3xl font-bold">
-    Welcome home.
-  </h1>
+  <div class="">
+    <h1 class="text-3xl font-bold">
+      Welcome home.
+    </h1>
+    <pre>{{ data }}</pre>
+  </div>
 </template>
-<script setup>
-const runtimeConfig = useRuntimeConfig()
+<script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+  auth: {
+    unauthenticatedOnly: false,
+    navigateAuthenticatedTo: '/protected'
+  }
+})
+const { data } = await useFetch('/api/me')
 
-console.log(runtimeConfig.GITHUB_CLIENT_SECRET, runtimeConfig.public.GITHUB_CLIENT_ID)
 </script>

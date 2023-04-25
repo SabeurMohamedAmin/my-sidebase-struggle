@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'
@@ -16,8 +17,10 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+    TWITCH_CLIENT_SECRET: process.env.TWITCH_CLIENT_SECRET,
     public: {
-      GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID
+      GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+      TWITCH_CLIENT_ID: process.env.TWITCH_CLIENT_ID
     }
   }
 })
