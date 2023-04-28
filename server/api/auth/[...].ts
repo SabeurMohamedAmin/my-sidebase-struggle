@@ -1,16 +1,32 @@
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GithubProvider from 'next-auth/providers/github'
 import TwitchProvider from 'next-auth/providers/twitch'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import { PrismaClient } from '@prisma/client'
 import { NuxtAuthHandler } from '#auth'
 import { users } from '~~/db'
 
 const runtimeConfig = useRuntimeConfig()
+const prisma = new PrismaClient()
+
+async function getMe (session: any) {
+  return await $fetch('/api/me', {
+    method: 'POST',
+    query: {
+      API_ROUTE_SECRET: runtimeConfig.API_ROUTE_SECRET
+    },
+    body: {
+      email: session?.user?.email
+    }
+  })
+}
 
 export default NuxtAuthHandler({
   pages: {
     // Change the default behavior to use `/login` as the path for the sign-in page
     signIn: '/login'
   },
+  adapter: PrismaAdapter(prisma),
   callbacks: {
     jwt: async ({ token, user }) => {
       const isSignIn = !!user
@@ -22,7 +38,8 @@ export default NuxtAuthHandler({
       return await Promise.resolve(token)
     },
     session: async ({ session, token }) => {
-      const me = users.find(u => u.email === session?.user?.email);
+      const me = await getMe(session);
+      /*      const me = users.find(u => u.email === session?.user?.email); */
       (session as any).subscribed = me?.subscribed
       return await Promise.resolve(session)
     }

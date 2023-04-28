@@ -8,7 +8,10 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint --max-warnings 0 .",
     "typecheck": "nuxt typecheck",
-    "start": "NODE_ENV=production node .output/server/index.mjs"
+    "start": "NODE_ENV=production node .output/server/index.mjs",
+    "prisma:migrate:dev": "npx prisma migrate dev",
+    "prisma:migrate:generate": "npx prisma generate",
+    "prisma:studio": "npx prisma studio"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
