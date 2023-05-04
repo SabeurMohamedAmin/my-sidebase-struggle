@@ -11,6 +11,7 @@ specifiers:
   '@types/node': ^18.11.18
   eslint: ^8.33.0
   flowbite: ^1.6.5
+  nanoid: ^4.0.2
   next-auth: 4.21.1
   nuxt: ^3.2.3
   prisma: ^4.11.0
@@ -26,6 +27,7 @@ dependencies:
   '@trpc/client': 10.21.0_@trpc+server@10.21.0
   '@trpc/server': 10.21.0
   flowbite: 1.6.5
+  nanoid: 4.0.2
   next-auth: 4.21.1
   superjson: 1.12.2
   trpc-nuxt: 0.7.0_mf5pbcehoxu6zd2gn2xfz5zmzq
@@ -4760,7 +4762,6 @@ packages:
     resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
     engines: {node: ^14 || ^16 || >=18}
     hasBin: true
-    dev: true
 
   /natural-compare-lite/1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}

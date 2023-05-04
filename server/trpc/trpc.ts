@@ -21,3 +21,9 @@ const t = initTRPC.context<Context>().create({
 export const publicProcedure = t.procedure
 export const router = t.router
 export const middleware = t.middleware
+
+export const consoleLogMiddlewae = t.middleware(async ({ ctx, next }) => {
+  console.log('in middleware')
+  return next({ ctx })
+})
+export const logProcedure = t.procedure.use(consoleLogMiddlewae)

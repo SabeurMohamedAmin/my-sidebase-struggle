@@ -12,6 +12,7 @@ export function createContext (_event: H3Event) {
    * return { prisma: _event.context.prisma }
    * ```
    */
+
   return {}
 }
 

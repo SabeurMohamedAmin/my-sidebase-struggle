@@ -1,8 +1,4 @@
-<template>
-  <div>
-    Hey I'm only for guests
-  </div>
-</template>
+
 <script setup lang="ts">
 definePageMeta({
   middleware: 'auth',
@@ -11,5 +7,12 @@ definePageMeta({
     navigateAuthenticatedTo: '/protected'
   }
 })
-
+const { $client } = useNuxtApp()
+const { data: hello } = await $client.hello.useQuery({ text: 'client' })
 </script>
+<template>
+  <div>
+    Hey I'm only for guests
+    <p>{{ hello?.greeting }}</p>
+  </div>
+</template>

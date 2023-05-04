@@ -4,6 +4,7 @@
       Welcome home.
     </h1>
     <pre>{{ data }}</pre>
+
   </div>
 </template>
 <script setup lang="ts">
@@ -15,5 +16,6 @@ definePageMeta({
   }
 })
 const { data } = await useFetch('/api/me')
+
 
 </script>
