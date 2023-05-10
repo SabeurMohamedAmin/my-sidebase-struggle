@@ -66,6 +66,4 @@ model Post{
   content     String   @db.VarChar(255)
   authorId    String
   @@index([authorId])
-
-
 }

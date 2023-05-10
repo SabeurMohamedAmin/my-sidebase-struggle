@@ -2,7 +2,8 @@
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'
+    '@nuxtjs/tailwindcss', '@sidebase/nuxt-auth', '@nuxt/devtools'
+
   ],
   build: {
     transpile: [
@@ -23,5 +24,13 @@ export default defineNuxtConfig({
       GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
       TWITCH_CLIENT_ID: process.env.TWITCH_CLIENT_ID
     }
+  },
+
+  devtools: {
+    // Enable devtools (default: true)
+    enabled: true,
+    // VS Code Server options
+    vscode: {}
+    // ...other options
   }
 })

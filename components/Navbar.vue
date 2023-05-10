@@ -8,7 +8,7 @@ const loggedIn = computed(() => status.value === 'authenticated')
     <div
       class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto"
     >
-      <Logo />
+      CricaTwitter
       <button
         data-collapse-toggle="navbar-default"
         type="button"

@@ -11,5 +11,6 @@ defineProps({
     @click="signIn(providerName?.toLowerCase(), {callbackUrl: '/'})"
   >
     Log in with {{ providerName }}
+    <GithubIcon class="ml-2" />
   </button>
 </template>
