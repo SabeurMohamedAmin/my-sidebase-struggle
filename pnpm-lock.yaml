@@ -13,7 +13,7 @@ specifiers:
   flowbite: ^1.6.5
   nanoid: ^4.0.2
   next-auth: 4.21.1
-  nuxt: ^3.2.3
+  nuxt: ^3.4.1
   prisma: ^4.11.0
   superjson: ^1.12.2
   trpc-nuxt: ^0.7.0
